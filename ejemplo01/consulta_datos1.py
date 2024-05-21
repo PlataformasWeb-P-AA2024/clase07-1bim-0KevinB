@@ -28,7 +28,7 @@ for s in clubs:
     print("%s" % (s.nombre))
     print("%s" % (s.id))
     print("%s" % (s.fundacion))
-    print("%s" % (s.jugadores))
+#    print("%s" % (s.jugadores))
     print("---------")
 print("$$$$$$$$$$$$$$$$$$")
 
