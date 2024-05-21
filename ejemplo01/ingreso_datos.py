@@ -59,6 +59,6 @@ session.add(jugador4)
 session.add(jugador5)
 session.add(jugador6)
 session.add(jugador7)
-
+session.add_all
 # se confirma las transacciones
 session.commit()

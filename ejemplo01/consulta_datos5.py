@@ -18,34 +18,6 @@ engine = create_engine(cadena_base_datos)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-# Obtener un listado de todos los registros 
-# de la tabla Club, que tengan al menos 
-# un jugador con el nombre que tenga incluida la cadena “Da”
-
-# para la solución se hace uso del método 
-# join aplicado a query
-
-clubs = session.query(Club).join(Jugador).\
-        filter(Jugador.nombre.like("%Da%")).all()
-print("Consulta 1 ")
-print(clubs)
-
-"""
-Consulta 1 
-Club: nombre=Barcelona deporte=Fútbol fundación=1920
-"""
-# for e in clubs: 
-#    print(e) 
-
-# Obtener un listado de todos los registros 
-# de la tabla Club y Jugador, que tengan al menos 
-# un jugador con el nombre que tenga incluida la cadena “Da”
-
-# para la solución se hace uso del método 
-# join aplicado a query
-# en el query se ubican las dos entidades involucradas
-# 
-
 registros = session.query(Club, Jugador).join(Jugador).\
          filter(Jugador.nombre.like("%Da%")).all()
  
@@ -62,14 +34,18 @@ Jugador: Damian Diaz - dorsal:10 - posición: mediocampo
 Club: nombre=Barcelona deporte=Fútbol fundación=1920
 Jugador: Dario Aymar - dorsal:2 - posición: defensa
 """
+
 for registro in registros: 
+#     Tupla de Club y Jugador, cada uno tiene su respectivo objeto
 #     # el registro continen 
 #     # dos valores en un tupla
 #     # posición 0 el club
 #     # posición 1 el jugador 
 #     # que cumplen con la condición
-    print(registro[0].nombre) # El club
-    print(registro[1].nombre) # El jugador
+    c = registro[0]
+    j = registro[1]
+    print(c.nombre) # El club
+    print(j.nombre) # El jugador
     print("------------------")
 
 
